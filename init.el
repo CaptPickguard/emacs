@@ -51,7 +51,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#1b1d1e" "#505050"))
  '(objed-cursor-color "#d02b61")
  '(package-selected-packages
-   '(avy magit counsel-projectile projectile undo-tree evil-collection evil doom-themes helpful ivy-rich which-key rainbow-delimiters elcord doom-modeline counsel ivy command-log-mode use-package))
+   '(visual-fill-column org-bullets avy magit counsel-projectile projectile undo-tree evil-collection evil doom-themes helpful ivy-rich which-key rainbow-delimiters elcord doom-modeline counsel ivy command-log-mode use-package))
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
@@ -241,3 +241,12 @@
 (use-package magit)
 
 (use-package avy)
+
+(use-package org
+  :config
+  (visual-line-mode 1)
+  (setq org-ellipsis " ▾"))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
